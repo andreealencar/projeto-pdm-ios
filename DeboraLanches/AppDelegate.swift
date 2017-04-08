@@ -21,15 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func arquivo() -> String {
         return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/cardapio"
     }
-
+    
+    func arquivo2() -> String {
+        return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/pedido"
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         print("\(self.arquivo())")
         
-        let obj = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo())
-        if (obj != nil){
-            self.cardapio = obj as! Cardapio
+        let obj1 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo())
+        let obj2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo2())
+        
+        
+        if (obj1 != nil){
+            self.cardapio = obj1 as! Cardapio
         }else{
             self.cardapio = Cardapio()
             let p1 = Produto(nome: "Pao Pizza", valor: 4.50)
@@ -40,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cardapio.add(produto: p3)
             let p4 = Produto(nome: "Coxinha", valor: 2.50)
             cardapio.add(produto: p4)
+        }
+        
+        if (obj2 != nil){
+            self.pedido = obj2 as! Pedido
+        }else{
+            self.pedido = Pedido()
         }
         
         // Override point for customization after application launch.

@@ -10,6 +10,8 @@ import UIKit
 
 class FormularioViewController: UIViewController {
 
+    let appDel = UIApplication.shared.delegate as! AppDelegate
+    
     var produto: Produto!
     var pedido: Pedido!
    
@@ -26,20 +28,17 @@ class FormularioViewController: UIViewController {
         if (self.pedido != nil){
             for p in 1...Int(self.stQuantidade.value) {
                 self.pedido.add(produto: produto)
-               
+                self.appDel.pedido.add(produto: produto)
             }
         }else{
             self.pedido = Pedido()
             for p in 1...Int(self.stQuantidade.value) {
                 self.pedido.add(produto: produto)
-               
+                self.appDel.pedido.add(produto: produto)
             }
         }
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cvc = sb.instantiateViewController(withIdentifier: "cardapio") as! CardapioTableViewController
-        
-        print(self.pedido.pedidos.count)
+        print(self.appDel.pedido.quantidade())
         
     }
     @IBAction func definirQuantidade(_ sender: Any) {

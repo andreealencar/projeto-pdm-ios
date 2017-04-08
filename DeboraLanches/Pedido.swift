@@ -11,37 +11,50 @@ import Foundation
 class Pedido: NSObject,NSCoding {
     
     var nomeCli: String!
-    var pedidos: Array<Produto>!
+    var dataPedido: Date!
+    var produtos: Array<Produto>!
     
     override init() {
-        self.pedidos = Array<Produto>()
+        self.produtos = Array<Produto>()
+        
+    }
+    
+    init(nomeCli: String, dataPedido: Date, produtos: Array<Produto>){
+    
+        self.nomeCli = nomeCli
+        self.dataPedido = dataPedido
+        self.produtos = produtos
         
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.pedidos = aDecoder.decodeObject(forKey: "pedidos") as! Array<Produto>
+        self.produtos = aDecoder.decodeObject(forKey: "produtos") as! Array<Produto>
+        self.nomeCli = aDecoder.decodeObject(forKey: "nomeCli") as! String
+        self.dataPedido = aDecoder.decodeObject(forKey: "data") as! Date
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.pedidos, forKey: "pedidos")
+        aCoder.encode(self.produtos, forKey: "produtos")
+        aCoder.encode(self.nomeCli, forKey: "nomeCli")
+        aCoder.encode(self.dataPedido, forKey: "data")
     }
     
     func add(produto: Produto) {
-        self.pedidos.append(produto)
+        self.produtos.append(produto)
     }
     
     func quantidade() -> Int {
-        return self.pedidos.count
+        return self.produtos.count
     }
     
     func del(pos: Int) {
-        self.pedidos.remove(at: pos)
+        self.produtos.remove(at: pos)
     }
     
     func troca(origem: Int, destino: Int) {
-        let aux = self.pedidos[origem]
-        self.pedidos[origem] = self.pedidos[destino]
-        self.pedidos[destino] = aux;
+        let aux = self.produtos[origem]
+        self.produtos[origem] = self.produtos[destino]
+        self.produtos[destino] = aux;
     }
     
 }

@@ -9,7 +9,9 @@
 import UIKit
 
 class PedidoTableViewController: UITableViewController {
-   
+    
+    let appDel = UIApplication.shared.delegate as! AppDelegate
+  
     var pedido: Pedido!
 
     override func viewDidLoad() {
@@ -20,6 +22,17 @@ class PedidoTableViewController: UITableViewController {
     
     
     func salvar() {
+        
+        
+        
+        
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier :"finalizar_view") as! UIViewController
+        self.present(viewController, animated: true)
+        
+        
 //        let desc = self.tfDescricao.text
 //        let valor = Double(self.tfValor.text!)
 //        let data = self.dpData.date
@@ -34,7 +47,7 @@ class PedidoTableViewController: UITableViewController {
 //            self.cadastro.gastos.append(gasto)
 //        }
         
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -53,17 +66,16 @@ class PedidoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.pedido.quantidade()
+        return self.appDel.pedido.quantidade()
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celula_pedido", for: indexPath)
                 
-        cell.textLabel?.text = self.pedido.pedidos[indexPath.row].description
+        cell.textLabel?.text = self.appDel.pedido.produtos[indexPath.row].description
 
-        
-
+      
         return cell
     }
  
