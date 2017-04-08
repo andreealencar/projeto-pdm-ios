@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var cardapio: Cardapio!
+    var pedido: Pedido!
     
     
     func arquivo() -> String {

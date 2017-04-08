@@ -11,16 +11,9 @@ import UIKit
 class CardapioTableViewController: UITableViewController {
 
     var cardapio: Cardapio!
+    var pedido: Pedido!
     
-    @IBOutlet weak var lbQtd: UILabel!
-    @IBOutlet weak var stQuantidade: UIStepper!
-    
-    @IBAction func stQtd(_ sender: Any) {
-        let qtd = Int(self.stQuantidade.value)
-        
-        self.lbQtd.text = String(qtd)
-        
-    }
+   
     
     
     override func viewDidLoad() {
@@ -56,8 +49,7 @@ class CardapioTableViewController: UITableViewController {
 
         let produto = self.cardapio.produtos[indexPath.row]
         cell.textLabel?.text = produto.description
-        
-       
+      
         return cell
     }
  
@@ -93,14 +85,16 @@ class CardapioTableViewController: UITableViewController {
 //        }
 //    }
  
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(cadastro.lista[indexPath.row])
-//        
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        let fvc = sb.instantiateViewController(withIdentifier: "formulario") as! FormularioViewController
-//        fvc.sugestao = cadastro.lista[indexPath.row]
-//        self.navigationController?.pushViewController(fvc, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(cardapio.produtos[indexPath.row])
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let fvc = sb.instantiateViewController(withIdentifier: "formulario") as! FormularioViewController
+        
+        fvc.produto = cardapio.produtos[indexPath.row]
+        fvc.pedido = self.pedido
+        
+        self.navigationController?.pushViewController(fvc, animated: true)
+    }
     
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
