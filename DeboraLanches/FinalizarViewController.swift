@@ -9,44 +9,47 @@
 import UIKit
 
 class FinalizarViewController: UIViewController {
-
-    @IBOutlet weak var tfNomeCli: UITextField!
+   
+    @IBOutlet weak var tfNomeCliente: UITextField!
+    @IBOutlet weak var lbValorTotal: UILabel!
     
     let appDel = UIApplication.shared.delegate as! AppDelegate
     
     var pedido: Pedido!
+
     
-  
-    @IBAction func finalizaPedido(_ sender: Any) {
-        
-        let nomeCli = self.tfNomeCli.text
+    @IBAction func finalizar(_ sender: Any) {
+        let nomeCli = self.tfNomeCliente.text
         let data = Date()
         let produtos = self.appDel.pedido.produtos
         
-        if(self.pedido != nil){
-            
+        if(self.pedido != nil) {
             self.pedido.nomeCli = nomeCli
             self.pedido.dataPedido = data
             self.pedido.produtos  = produtos
-            
-            
-        }else {
-            
-            let pedido  = Pedido(nomeCli: nomeCli!, dataPedido: data, produtos: Array<Produto>!)
-            
-            self.appDel.pedido.produtos.append(pedido)
-            
-        
+        } else {
+            let pedido  = Pedido(nomeCli: nomeCli!, dataPedido: data, produtos: produtos!)
+            self.appDel.historico.append(pedido)
+            self.appDel.pedido = Pedido()
         }
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "cardapio") as! CardapioTableViewController
         
-        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        let custo = NSString(format: "R$ %.2f", self.appDel.pedido.contaTotal())
+        lbValorTotal.text = custo.description
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -19,8 +19,7 @@ class Pedido: NSObject,NSCoding {
         
     }
     
-    init(nomeCli: String, dataPedido: Date, produtos: Array<Produto>){
-    
+    init(nomeCli: String, dataPedido: Date, produtos: Array<Produto>){  
         self.nomeCli = nomeCli
         self.dataPedido = dataPedido
         self.produtos = produtos
@@ -29,13 +28,13 @@ class Pedido: NSObject,NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         self.produtos = aDecoder.decodeObject(forKey: "produtos") as! Array<Produto>
-        self.nomeCli = aDecoder.decodeObject(forKey: "nomeCli") as! String
+        self.nomeCli = aDecoder.decodeObject(forKey: "cliente") as! String
         self.dataPedido = aDecoder.decodeObject(forKey: "data") as! Date
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.produtos, forKey: "produtos")
-        aCoder.encode(self.nomeCli, forKey: "nomeCli")
+        aCoder.encode(self.nomeCli, forKey: "cliente")
         aCoder.encode(self.dataPedido, forKey: "data")
     }
     
@@ -57,4 +56,17 @@ class Pedido: NSObject,NSCoding {
         self.produtos[destino] = aux;
     }
     
+    func contaTotal() -> Double {
+        var total = 0.0
+        
+        for p in self.produtos {
+            total = total + p.valor
+        }
+        
+        return total
+    }
+    
+    override var description: String {
+        return self.contaTotal().description
+    }
 }

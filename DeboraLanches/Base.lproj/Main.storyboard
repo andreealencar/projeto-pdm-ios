@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Cardapio" id="dVb-XC-W0U">
                         <barButtonItem key="leftBarButtonItem" title="Historico" id="XMf-xb-DPl">
                             <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="obW-iB-DFd" kind="show" id="3Rm-AZ-xFS"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Meu Pedido" id="vbf-rn-jWw">
                             <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,11 +54,12 @@
         <!--Pedido-->
         <scene sceneID="Q1V-LE-4dH">
             <objects>
-                <tableViewController title="Pedido" id="3db-g8-fow" customClass="PedidoTableViewController" customModule="DeboraLanches" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ob5-2q-yy8">
+                <tableViewController storyboardIdentifier="pedido" title="Pedido" id="3db-g8-fow" customClass="PedidoTableViewController" customModule="DeboraLanches" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ob5-2q-yy8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.40000000000000002" height="0.29999999999999999"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="celula_pedido" selectionStyle="default" indentationWidth="10" reuseIdentifier="celula_pedido" rowHeight="69" id="ESJ-Yz-w2M">
                                 <rect key="frame" x="0.0" y="28" width="320" height="69"/>
@@ -71,15 +75,43 @@
                             <outlet property="delegate" destination="3db-g8-fow" id="SiA-JW-6du"/>
                         </connections>
                     </tableView>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ao-zr-K9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.75" y="-1003.5211267605634"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="7Tt-Un-ek6">
+            <objects>
+                <viewController storyboardIdentifier="teste" id="14E-dS-Khc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3yW-Zi-x6y"/>
+                        <viewControllerLayoutGuide type="bottom" id="TEy-jr-BBi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zph-gt-a2d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="essa derrota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDu-9V-no2">
+                                <rect key="frame" x="139" y="233" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZV-Z9-BXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3555" y="-1004"/>
+        </scene>
         <!--Finalizar pedido-->
         <scene sceneID="5ph-U9-9Ko">
             <objects>
-                <viewController storyboardIdentifier="finalizar_view" title="Finalizar pedido" id="W8T-t9-9bx" customClass="FinalizarViewController" customModule="DeboraLanches" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="finaliza" title="Finalizar pedido" id="W8T-t9-9bx" customClass="FinalizarViewController" customModule="DeboraLanches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="urU-Xm-rbM"/>
                         <viewControllerLayoutGuide type="bottom" id="AGD-GR-dPf"/>
@@ -88,13 +120,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Digite seu nome e clique em finalizar." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Kh-tdQ">
-                                <rect key="frame" x="16" y="28" width="280" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Digite seu nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdt-hw-HDY">
                                 <rect key="frame" x="16" y="144" width="273" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -103,7 +128,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i43-Fp-9xR">
-                                <rect key="frame" x="16" y="180" width="273" height="30"/>
+                                <rect key="frame" x="16" y="181" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,7 +144,7 @@
                                     <color key="titleShadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="finalizaPedido:" destination="W8T-t9-9bx" eventType="touchUpInside" id="04f-pD-Q3j"/>
+                                    <action selector="finalizar:" destination="W8T-t9-9bx" eventType="touchUpInside" id="pSQ-Ug-rZF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total da Compra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb9-U5-4XM">
@@ -136,17 +161,24 @@
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Digite seu nome e clique em finalizar." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Kh-tdQ">
+                                <rect key="frame" x="16" y="75" width="280" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="finalizarPedido" destination="6Tr-yy-jcy" id="HPz-gM-FvP"/>
-                        <outlet property="tfNomeCli" destination="i43-Fp-9xR" id="WVE-UI-cPO"/>
+                        <outlet property="lbValorTotal" destination="GLo-vx-UEe" id="mf1-sk-jKx"/>
+                        <outlet property="tfNomeCliente" destination="i43-Fp-9xR" id="BbF-2f-cbd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNr-5i-y6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652.5" y="-1004.5774647887324"/>
+            <point key="canvasLocation" x="3579" y="-312"/>
         </scene>
         <!--Formulario View Controller-->
         <scene sceneID="lRa-Hp-JwQ">
@@ -222,6 +254,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loB-Pv-zRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.75" y="-311.61971830985914"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="c4d-u7-32N">
+            <objects>
+                <tableViewController storyboardIdentifier="historico" id="obW-iB-DFd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dxD-Ee-ceF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="celula_historico" selectionStyle="default" indentationWidth="10" id="rJ1-gg-8dO">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rJ1-gg-8dO" id="g4N-ce-XN7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="obW-iB-DFd" id="18p-86-hac"/>
+                            <outlet property="delegate" destination="obW-iB-DFd" id="LQ3-2a-N7z"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PxU-9t-HMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvr-Pa-QXv">

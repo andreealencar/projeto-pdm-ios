@@ -13,17 +13,11 @@ class CardapioTableViewController: UITableViewController {
     var cardapio: Cardapio!
     var pedido: Pedido!
     
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.cardapio = appDelegate.cardapio
-       
-        
-
     }
 
     override func didReceiveMemoryWarning() {

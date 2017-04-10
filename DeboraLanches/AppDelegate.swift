@@ -16,22 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var cardapio: Cardapio!
     var pedido: Pedido!
+    var historico: Array<Pedido> = []
     
     
-    func arquivo() -> String {
+    func arquivo_cardapio() -> String {
         return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/cardapio"
     }
     
-    func arquivo2() -> String {
+    func arquivo_pedido() -> String {
         return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/pedido"
     }
 
+    func arquivo_historico() -> String {
+        return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/historico"
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        print("\(self.arquivo())")
+        print("\(self.arquivo_cardapio())")
+        print("\(self.arquivo_pedido())")
         
-        let obj1 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo())
-        let obj2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo2())
+        let obj1 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo_cardapio())
+        let obj2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo_pedido())
+        let obj3 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo_historico())
         
         
         if (obj1 != nil){
@@ -54,6 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.pedido = Pedido()
         }
         
+        if (obj3 != nil){
+            self.historico = obj3 as! Array<Pedido>
+        }else{
+            self.historico = Array<Pedido>()
+        }
+        
         // Override point for customization after application launch.
         return true
     }
@@ -64,8 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        NSKeyedArchiver.archiveRootObject(self.cardapio, toFile: self.arquivo_cardapio())
+        NSKeyedArchiver.archiveRootObject(self.pedido, toFile: self.arquivo_pedido())
+        NSKeyedArchiver.archiveRootObject(self.historico, toFile: self.arquivo_historico())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

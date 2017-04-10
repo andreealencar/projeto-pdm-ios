@@ -16,6 +16,8 @@
 		841CFD621E9824FF006B4078 /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CFD611E9824FF006B4078 /* Produto.swift */; };
 		841CFD641E982514006B4078 /* Pedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CFD631E982514006B4078 /* Pedido.swift */; };
 		841CFD661E982C5A006B4078 /* CardapioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CFD651E982C5A006B4078 /* CardapioTableViewController.swift */; };
+		849104FB1E9BB98800AC22C1 /* shoppingcart.png in Resources */ = {isa = PBXBuildFile; fileRef = 849104FA1E9BB98800AC22C1 /* shoppingcart.png */; };
+		849104FE1E9BD00F00AC22C1 /* HistoricoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849104FD1E9BD00F00AC22C1 /* HistoricoTableViewController.swift */; };
 		84CEA9531E994A4C00DA5881 /* PedidoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEA9521E994A4C00DA5881 /* PedidoTableViewController.swift */; };
 		84CEA9551E996FA500DA5881 /* FinalizarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEA9541E996FA500DA5881 /* FinalizarViewController.swift */; };
 		84E1F69B1E99412400AC1931 /* FormularioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1F69A1E99412400AC1931 /* FormularioViewController.swift */; };
@@ -33,6 +35,8 @@
 		841CFD611E9824FF006B4078 /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		841CFD631E982514006B4078 /* Pedido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pedido.swift; sourceTree = "<group>"; };
 		841CFD651E982C5A006B4078 /* CardapioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioTableViewController.swift; sourceTree = "<group>"; };
+		849104FA1E9BB98800AC22C1 /* shoppingcart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoppingcart.png; path = ../../../../Downloads/shoppingcart.png; sourceTree = "<group>"; };
+		849104FD1E9BD00F00AC22C1 /* HistoricoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricoTableViewController.swift; sourceTree = "<group>"; };
 		84CEA9521E994A4C00DA5881 /* PedidoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedidoTableViewController.swift; sourceTree = "<group>"; };
 		84CEA9541E996FA500DA5881 /* FinalizarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalizarViewController.swift; sourceTree = "<group>"; };
 		84E1F69A1E99412400AC1931 /* FormularioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 		841CFD461E9824B2006B4078 /* DeboraLanches */ = {
 			isa = PBXGroup;
 			children = (
+				849104FC1E9BB98D00AC22C1 /* Images */,
 				841CFD5E1E9824C9006B4078 /* Controller */,
 				841CFD5D1E9824C2006B4078 /* Model */,
 				841CFD5C1E9824BB006B4078 /* View */,
@@ -105,8 +110,17 @@
 				84E1F69A1E99412400AC1931 /* FormularioViewController.swift */,
 				84CEA9521E994A4C00DA5881 /* PedidoTableViewController.swift */,
 				84CEA9541E996FA500DA5881 /* FinalizarViewController.swift */,
+				849104FD1E9BD00F00AC22C1 /* HistoricoTableViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		849104FC1E9BB98D00AC22C1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				849104FA1E9BB98800AC22C1 /* shoppingcart.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841CFD551E9824B3006B4078 /* LaunchScreen.storyboard in Resources */,
+				849104FB1E9BB98800AC22C1 /* shoppingcart.png in Resources */,
 				841CFD521E9824B2006B4078 /* Assets.xcassets in Resources */,
 				841CFD4D1E9824B2006B4078 /* Main.storyboard in Resources */,
 			);
@@ -189,6 +204,7 @@
 				84CEA9531E994A4C00DA5881 /* PedidoTableViewController.swift in Sources */,
 				841CFD621E9824FF006B4078 /* Produto.swift in Sources */,
 				841CFD661E982C5A006B4078 /* CardapioTableViewController.swift in Sources */,
+				849104FE1E9BD00F00AC22C1 /* HistoricoTableViewController.swift in Sources */,
 				841CFD501E9824B2006B4078 /* DeboraLanches.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
