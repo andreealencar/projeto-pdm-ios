@@ -17,27 +17,46 @@ class FinalizarViewController: UIViewController {
     
     var pedido: Pedido!
 
-    
     @IBAction func finalizar(_ sender: Any) {
         let nomeCli = self.tfNomeCliente.text
         let data = Date()
         let produtos = self.appDel.pedido.produtos
+            pedido = Pedido() 
+        self.pedido.nomeCli=nomeCli
+        self.pedido.dataPedido=data
+        self.pedido.produtos=produtos
         
-        if(self.pedido != nil) {
-            self.pedido.nomeCli = nomeCli
-            self.pedido.dataPedido = data
-            self.pedido.produtos  = produtos
-        } else {
-            let pedido  = Pedido(nomeCli: nomeCli!, dataPedido: data, produtos: produtos!)
-            self.appDel.historico.append(pedido)
-            self.appDel.pedido = Pedido()
-        }
+//        self.pedido.nomeCli = nomeCli
+//        self.pedido.dataPedido = data
+//        self.pedido.produtos  = produtos
+        
+        self.appDel.historico.pedidos.append(self.pedido)
+        
+        self.appDel.pedido = Pedido()
+        
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "cardapio") as! CardapioTableViewController
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+//    @IBAction func finalizar(_ sender: Any) {
+//        let nomeCli = self.tfNomeCliente.text
+//        let data = Date()
+//        let produtos = self.appDel.pedido.produtos
+//        
+//        self.pedido.nomeCli = nomeCli
+//        self.pedido.dataPedido = data
+//        self.pedido.produtos  = produtos
+//        
+//        appDel.historico.append(pedido)
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "cardapio") as! CardapioTableViewController
+//        
+//        self.navigationController?.pushViewController(viewController, animated: true)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

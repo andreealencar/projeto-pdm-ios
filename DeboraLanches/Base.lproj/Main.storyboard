@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zoQ-pP-1vn" id="ZOL-b0-Shq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ESJ-Yz-w2M" id="voL-T1-A4i">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZV-Z9-BXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3555" y="-1004"/>
+            <point key="canvasLocation" x="3750" y="-1030"/>
         </scene>
         <!--Finalizar pedido-->
         <scene sceneID="5ph-U9-9Ko">
@@ -135,7 +135,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Tr-yy-jcy">
-                                <rect key="frame" x="16" y="371" width="288" height="41"/>
+                                <rect key="frame" x="16" y="371" width="288" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="titleShadowOffset" width="-1" height="0.0"/>
@@ -144,7 +144,7 @@
                                     <color key="titleShadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="finalizar:" destination="W8T-t9-9bx" eventType="touchUpInside" id="pSQ-Ug-rZF"/>
+                                    <action selector="finalizar:" destination="W8T-t9-9bx" eventType="touchUpInside" id="2oE-r8-HBY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total da Compra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb9-U5-4XM">
@@ -173,12 +173,12 @@
                     </view>
                     <connections>
                         <outlet property="lbValorTotal" destination="GLo-vx-UEe" id="mf1-sk-jKx"/>
-                        <outlet property="tfNomeCliente" destination="i43-Fp-9xR" id="BbF-2f-cbd"/>
+                        <outlet property="tfNomeCliente" destination="i43-Fp-9xR" id="nY3-MF-Ecb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNr-5i-y6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3579" y="-312"/>
+            <point key="canvasLocation" x="3577.5" y="-312.67605633802816"/>
         </scene>
         <!--Formulario View Controller-->
         <scene sceneID="lRa-Hp-JwQ">
@@ -255,20 +255,20 @@
             </objects>
             <point key="canvasLocation" x="2703.75" y="-311.61971830985914"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Historico de pedidos-->
         <scene sceneID="c4d-u7-32N">
             <objects>
-                <tableViewController storyboardIdentifier="historico" id="obW-iB-DFd" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="historico" title="Historico de pedidos" id="obW-iB-DFd" customClass="HistoricoTableViewController" customModule="DeboraLanches" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dxD-Ee-ceF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="celula_historico" selectionStyle="default" indentationWidth="10" id="rJ1-gg-8dO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="celula_historico" selectionStyle="default" indentationWidth="10" reuseIdentifier="celula_historico" id="rJ1-gg-8dO">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rJ1-gg-8dO" id="g4N-ce-XN7">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -281,7 +281,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PxU-9t-HMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="435"/>
+            <point key="canvasLocation" x="1683.75" y="434.15492957746477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvr-Pa-QXv">

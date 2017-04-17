@@ -14,7 +14,9 @@ class HistoricoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,26 +38,46 @@ class HistoricoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return appDel.historico.count
+        return appDel.historico.quantidade()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula_historico", for: indexPath)
-
-        cell.textLabel?.text = self.appDel.historico[indexPath.row].description
-
+       
+               cell.textLabel?.text = self.appDel.historico.pedidos[indexPath.row].description
+       
+                
+                
+                
+//         cell.textLabel?.text = self.appDel.historico.pedidos[indexPath.row].nomeCli
+//         cell.textLabel?.text = String(describing: self.appDel.historico.pedidos[indexPath.row].dataPedido)
+//         cell.textLabel?.text = String(self.appDel.historico.pedidos[indexPath.row].contaTotal())
         return cell
+        
     }
-    
 
-    /*
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.appDel.historico.pedidos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support editing the table view.

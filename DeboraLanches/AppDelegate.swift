@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var cardapio: Cardapio!
     var pedido: Pedido!
-    var historico: Array<Pedido> = []
-    
+    var historico: Historico!
     
     func arquivo_cardapio() -> String {
         return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/cardapio"
@@ -35,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\(self.arquivo_cardapio())")
         print("\(self.arquivo_pedido())")
+        print("\(self.arquivo_historico())")
         
         let obj1 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo_cardapio())
         let obj2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.arquivo_pedido())
@@ -62,9 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if (obj3 != nil){
-            self.historico = obj3 as! Array<Pedido>
+            self.historico = obj3 as! Historico
         }else{
-            self.historico = Array<Pedido>()
+            self.historico = Historico()
         }
         
         // Override point for customization after application launch.
